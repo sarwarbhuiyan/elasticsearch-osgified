@@ -1,4 +1,12 @@
 #-----------------------------------------------------------------
 # Use this file to add customized Bnd instructions for the bundle
 #-----------------------------------------------------------------
-
+Embed-Dependency:\
+ lucene-core;groupId=org.apache.lucene;inline=false,\
+ lucene-highlighter;groupId=org.apache.lucene;inline=false,\
+ lucene-memory;groupId=org.apache.lucene;inline=false,\
+ lucene-queries;groupId=org.apache.lucene;inline=false,\
+ lucene-analyzers;groupId=org.apache.lucene;inline=false,\
+ elasticsearch;groupId=org.elasticsearch;inline=false,\
+ jline;groupId=jline;inline=false,\
+ jna;groupId=net.java.dev.jna;inline=false
