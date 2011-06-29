@@ -28,6 +28,8 @@ public class ESServer {
     private Map<String, String> configuration;
     private Node node;
 
+    public boolean running = false;
+
     public ESServer() {
         //noinspection NullableProblems
         this(null);
@@ -78,11 +80,12 @@ public class ESServer {
         //Small shortcut to see if everything is ok.
         ESMonitor esMonitor = new ESMonitor(this);
         if (esMonitor.getClusterStatus().equals(com.humanet.elasticsearch.internal.Status.nok)) {
-            node = null;
+            running = false;
             throw new RuntimeException("ES cluster health status is RED. Server is not able to start.");
 
         } else {
             log.info("FullTextSearch Server running");
+            running = true;
         }
     }
 
@@ -91,7 +94,7 @@ public class ESServer {
             log.info("Starting FullTextSearch Server with ElasticSearch");
 
             node.stop();
-            node = null;
+            running = false;
 
             log.info("FullTextSearch Server stopped");
         } else {

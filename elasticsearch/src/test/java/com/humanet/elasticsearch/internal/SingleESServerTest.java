@@ -26,7 +26,7 @@ public class SingleESServerTest {
         assertFalse(server.isRunning());
     }
 
-    @Test(enabled = false)
+    @Test
     public void start_server_with_http_module_disabled() throws IOException {
         Properties esProperties = new Properties();
         esProperties.load(new FileInputStream(
