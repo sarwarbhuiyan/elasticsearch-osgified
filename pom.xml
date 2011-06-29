@@ -12,6 +12,7 @@
     <properties>
         <org.osgi.service.http.port>8080</org.osgi.service.http.port>
         <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+        <log4j.configuration>file:../log4j.properties</log4j.configuration>
 
         <spring.dm.version>1.2.1</spring.dm.version>
         <spring.framework.version>3.0.5.RELEASE</spring.framework.version>

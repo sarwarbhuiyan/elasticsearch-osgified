@@ -12,9 +12,12 @@
         <property name="location" value="${fulltextsearch.propertyfile}"/>
     </bean>
 
-    <bean id="esServer" class="com.humanet.elasticsearch.internal.ElasticSearchServer" init-method="start" destroy-method="stop">
+    <bean id="esServer" class="com.humanet.elasticsearch.internal.ESServer" init-method="start" destroy-method="stop">
         <constructor-arg ref="elasticSearchConfiguration"/>
     </bean>
 
+    <bean id="esServerMonitor" class="com.humanet.elasticsearch.internal.ESMonitor">
+        <constructor-arg index="0" ref="esServer"/>
+    </bean>
 
 </beans>
