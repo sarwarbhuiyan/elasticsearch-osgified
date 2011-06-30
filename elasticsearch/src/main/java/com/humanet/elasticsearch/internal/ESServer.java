@@ -48,7 +48,7 @@ public class ESServer {
 
         node = NodeBuilder.nodeBuilder()
                 .settings(settings)
-                .loadConfigSettings(false)
+                .loadConfigSettings(configuration.containsKey("path.conf"))
                 .build();
 
         if ("true".equalsIgnoreCase(settings.get("es.max.files"))) {
@@ -104,7 +104,7 @@ public class ESServer {
     }
 
     public boolean isRunning() {
-        return node != null;
+        return running;
     }
 
     protected Client getClient() {

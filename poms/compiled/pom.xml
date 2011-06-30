@@ -50,6 +50,23 @@
                     </instructions>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <useFile>false</useFile>
+                    <forkMode>once</forkMode>
+                    <childDelegation>false</childDelegation>
+                    <useSystemClassLoader>true</useSystemClassLoader>
+                    <printSummary>true</printSummary>
+                    <reportFormat>brief</reportFormat>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
