@@ -3,6 +3,9 @@ package com.humanet.elasticsearch.internal;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
+import org.elasticsearch.action.admin.cluster.node.info.NodeInfo;
+import org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest;
+import org.elasticsearch.action.admin.cluster.node.info.NodesInfoResponse;
 import org.elasticsearch.client.Client;
 
 /**
@@ -51,6 +54,14 @@ public class ESMonitor {
         }
 
         return com.humanet.elasticsearch.internal.Status.ok;
+    }
+
+    public NodeInfo[] getClusterInfo() {
+        NodesInfoResponse clusterInfo = client.admin().cluster()
+                .nodesInfo(new NodesInfoRequest())
+                .actionGet();
+
+        return clusterInfo.getNodes();
     }
 
 }

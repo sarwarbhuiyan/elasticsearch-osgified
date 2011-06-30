@@ -1,6 +1,7 @@
 package com.humanet.elasticsearch.internal;
 
 import org.apache.commons.io.FileUtils;
+import org.elasticsearch.action.admin.cluster.node.info.NodeInfo;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
@@ -57,11 +58,31 @@ public class SingleESServerTest {
         server.start();
         assertTrue(server.isRunning());
 
-        //TODO : check that the configuration is being loaded. For example get the node name.
+        NodeInfo[] clusterInfo = new ESMonitor(server).getClusterInfo();
+        assertThat(clusterInfo, HasNodeWithName("elasticsearch-server-01"));
 
         server.stop();
         assertFalse(server.isRunning());
 
+    }
+
+    private Matcher<NodeInfo[]> HasNodeWithName(final String nodeName) {
+        return new TypeSafeMatcher<NodeInfo[]>() {
+            @Override
+            public boolean matchesSafely(NodeInfo[] nodeInfos) {
+                for (NodeInfo nodeInfo : nodeInfos) {
+                    if(nodeInfo.getNode().getName().equals(nodeName)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("A node was found with name " + nodeName);
+            }
+        };
     }
 
     @Test
