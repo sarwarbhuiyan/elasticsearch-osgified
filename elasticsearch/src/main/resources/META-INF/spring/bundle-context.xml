@@ -8,16 +8,8 @@
     <!--suppress RequiredBeanTypeInspection -->
     <ctx:property-placeholder properties-ref="elasticSearchProperties"/>
 
-    <bean id="elasticSearchConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="properties">
-            <props>
-                <prop key="path.conf">${fulltextsearch.conf.dir}</prop>
-            </props>
-        </property>
-    </bean>
-
     <bean id="esServer" class="com.humanet.elasticsearch.internal.ESServer" init-method="start" destroy-method="stop">
-        <constructor-arg ref="elasticSearchConfiguration"/>
+        <constructor-arg ref="elasticSearchProperties"/>
     </bean>
 
     <bean id="esServerMonitor" class="com.humanet.elasticsearch.internal.ESMonitor">

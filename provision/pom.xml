@@ -22,14 +22,16 @@
             <artifactId>org.osgi.compendium</artifactId>
             <version>4.1.0</version>
         </dependency>
+
+        <!-- Spring dependencies -->
         <dependency>
             <groupId>org.springframework.osgi</groupId>
-            <artifactId>spring-osgi-extender</artifactId>
+            <artifactId>spring-osgi-core</artifactId>
             <version>${spring.dm.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.osgi</groupId>
-            <artifactId>spring-osgi-core</artifactId>
+            <artifactId>spring-osgi-extender</artifactId>
             <version>${spring.dm.version}</version>
         </dependency>
         <dependency>
@@ -45,18 +47,30 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>org.springframework.beans</artifactId>
+            <artifactId>org.springframework.context</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>org.springframework.context</artifactId>
+            <artifactId>org.springframework.beans</artifactId>
             <version>${spring.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.context.support</artifactId>
             <version>${spring.framework.version}</version>
+        </dependency>
+
+        <!-- Pax logging -->
+        <dependency>
+            <groupId>org.ops4j.pax.logging</groupId>
+            <artifactId>pax-logging-api</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.logging</groupId>
+            <artifactId>pax-logging-service</artifactId>
+            <version>1.6.2</version>
         </dependency>
 
     </dependencies>
