@@ -1,5 +1,6 @@
 package com.humanet.elasticsearch.internal;
 
+import com.humanet.elasticsearch.Status;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.elasticsearch.action.admin.cluster.health.ClusterHealthStatus;
@@ -49,11 +50,12 @@ public class ESMonitor {
 
         // If we are still in red status, then we cannot proceed.
         if (ClusterHealthStatus.RED.equals(status)) {
-            log.error("ElasticSearch cluster health status is RED. Server is not able to start.");
-            return com.humanet.elasticsearch.internal.Status.nok;
+            String errorMsg = "ElasticSearch cluster health status is RED. Server is not able to start.";
+            log.error(errorMsg);
+            return Status.failure(errorMsg);
         }
 
-        return com.humanet.elasticsearch.internal.Status.ok;
+        return Status.success();
     }
 
     public NodeInfo[] getClusterInfo() {

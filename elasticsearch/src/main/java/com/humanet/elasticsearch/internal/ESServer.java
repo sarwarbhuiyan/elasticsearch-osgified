@@ -79,7 +79,7 @@ public class ESServer {
 
         //Small shortcut to see if everything is ok.
         ESMonitor esMonitor = new ESMonitor(this);
-        if (esMonitor.getClusterStatus().equals(com.humanet.elasticsearch.internal.Status.nok)) {
+        if (esMonitor.getClusterStatus().notOk()) {
             running = false;
             throw new RuntimeException("ES cluster health status is RED. Server is not able to start.");
 

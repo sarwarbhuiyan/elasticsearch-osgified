@@ -1,10 +1,14 @@
 package com.humanet.elasticsearch.internal;
 
+import org.apache.commons.io.FileUtils;
 import org.elasticsearch.action.admin.cluster.node.info.NodeInfo;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
@@ -15,17 +19,22 @@ import static org.testng.Assert.assertEquals;
  */
 public class MultipleESServerTest {
 
-    private ESPropertyBuilder s1Properties = new ESPropertyBuilder()
+    private ESConfigurationBuilder s1Properties = new ESConfigurationBuilder()
             .withName("server1")
             .withHttp(false)
             .withTransportTcpPort(9300)
             .withClusterName("es-cluster");
 
-    private ESPropertyBuilder s2Properties = new ESPropertyBuilder()
+    private ESConfigurationBuilder s2Properties = new ESConfigurationBuilder()
             .withName("server2")
             .withHttp(false)
             .withTransportTcpPort(9301)
             .withClusterName("es-cluster");
+
+    @AfterMethod
+    public void tearDown() throws Exception {
+        FileUtils.deleteDirectory(new File("data"));
+    }
 
     @Test
     public void check_cluster_connection_with_multicast() {
