@@ -8,7 +8,8 @@
     <!--suppress RequiredBeanTypeInspection -->
     <ctx:property-placeholder properties-ref="elasticSearchProperties"/>
 
-    <bean id="esServer" class="com.humanet.elasticsearch.internal.ESServer" init-method="start" destroy-method="stop">
+    <bean id="esServer" class="com.humanet.elasticsearch.internal.ESServer"
+          init-method="start" destroy-method="stop">
         <constructor-arg ref="elasticSearchProperties"/>
     </bean>
 

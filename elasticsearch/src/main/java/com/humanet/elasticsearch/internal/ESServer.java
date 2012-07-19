@@ -15,12 +15,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-/**
- * User: Hugo Marcelino
- * Date: 28/6/11
- * <p/>
- * This class was build based on https://gist.github.com/977580
- */
 public class ESServer {
 
     public static final Log log = LogFactory.getLog(ESServer.class);
@@ -37,8 +31,8 @@ public class ESServer {
 
     public ESServer(Map<String, String> configuration) {
         this.configuration = configuration != null
-                ? configuration
-                : Collections.<String, String>emptyMap();
+                             ? configuration
+                             : Collections.<String, String>emptyMap();
 
         setUp();
     }
@@ -47,9 +41,9 @@ public class ESServer {
         final Settings settings = ImmutableSettings.settingsBuilder().put(configuration).build();
 
         node = NodeBuilder.nodeBuilder()
-                .settings(settings)
-                .loadConfigSettings(configuration.containsKey("path.conf"))
-                .build();
+            .settings(settings)
+            .loadConfigSettings(configuration.containsKey("path.conf"))
+            .build();
 
         if ("true".equalsIgnoreCase(settings.get("es.max.files"))) {
             final String workPath = node.settings().get("path.work");
@@ -60,10 +54,11 @@ public class ESServer {
         if (log.isInfoEnabled()) {
             log.info("Starting the Elastic Search server node with these settings:");
             final Map<String, String> map = node.settings().getAsMap();
+
             final List<String> keys = new ArrayList<String>(map.keySet());
             Collections.sort(keys);
             for (String key : keys) {
-                log.info(" " + key + " : " + getValue(map, key));
+                log.info("Key: " + key + " : " + getValue(map, key));
             }
         }
     }
@@ -74,12 +69,12 @@ public class ESServer {
     }
 
     public void start() {
-        log.info("Starting FullTextSearch Server with ElasticSearch");
+        log.info("Starting FullTextSearch server with ElasticSearch");
         node.start();
 
         //Small shortcut to see if everything is ok.
         ESMonitor esMonitor = new ESMonitor(this);
-        if (esMonitor.getClusterStatus().notOk()) {
+        if (esMonitor.getClusterStatus().equals(Status.nok)) {
             running = false;
             throw new RuntimeException("ES cluster health status is RED. Server is not able to start.");
 
@@ -91,12 +86,12 @@ public class ESServer {
 
     public void stop() {
         if (node != null) {
-            log.info("Starting FullTextSearch Server with ElasticSearch");
+            log.info("Stopping FullTextSearch server with ElasticSearch");
 
             node.stop();
             running = false;
 
-            log.info("FullTextSearch Server stopped");
+            log.info("FullTextSearch with ElasticServer stopped");
         } else {
             log.info("The server appears to be already stopped. Are you sure you started the server ?");
 

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <relativePath>../poms/compiled/</relativePath>
+        <groupId>com.humanet.fulltextsearch.build</groupId>
+        <artifactId>compiled-bundle-settings</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.humanet.fulltextsearch</groupId>
+    <artifactId>distribution</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <bundle.symbolicName>elasticsearch</bundle.symbolicName>
+        <bundle.namespace>com.humanet.elasticsearch</bundle.namespace>
+    </properties>
+
+    <name>FullTextSearch - Application Packager</name>
+
+    <profiles>
+        <profile>
+            <id>distribution</id>
+
+            <repositories>
+                <repository>
+                    <id>com.springsource.repository.bundles.external</id>
+                    <url>http://repository.springsource.com/maven/bundles/external</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>com.springsource.repository.libraries.release</id>
+                    <name>SpringSource Enterprise Bundle Repository - SpringSource Library Releases</name>
+                    <url>http://repository.springsource.com/maven/bundles/release</url>
+                </repository>
+                <repository>
+                    <id>maven2-repository.dev.java.net</id>
+                    <name>Java.net Repository for Maven</name>
+                    <url>http://download.java.net/maven/2/</url>
+                    <layout>default</layout>
+                </repository>
+                <repository>
+                    <id>OPS4J</id>
+                    <url>http://repository.ops4j.org/maven2</url>
+                </repository>
+                <repository>
+                    <id>google</id>
+                    <name>Google Repository</name>
+                    <url>http://jmockit.googlecode.com/svn/maven-repo/</url>
+                </repository>
+            </repositories>
+
+            <dependencies>
+
+                <dependency>
+                    <groupId>com.humanet.fulltextsearch</groupId>
+                    <artifactId>elasticsearch</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.ops4j.pax.runner</groupId>
+                    <artifactId>pax-runner</artifactId>
+                    <version>1.5.0</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.eclipse</groupId>
+                    <artifactId>osgi</artifactId>
+                    <version>3.5.1.R35x_v20090827</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.osgi</groupId>
+                    <artifactId>util</artifactId>
+                    <version>3.1.200-v20070605</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.osgi</groupId>
+                    <artifactId>services</artifactId>
+                    <version>3.1.200-v20070605</version>
+                </dependency>
+
+                <!--for the admin web console (it's felix but works on other OSGis)-->
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.webconsole</artifactId>
+                    <version>3.1.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.prefs</artifactId>
+                    <version>1.0.4</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.scr</artifactId>
+                    <version>1.4.0</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.shell</artifactId>
+                    <version>1.4.0</version>
+                </dependency>
+
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-assembly-plugin</artifactId>
+                        <configuration>
+                            <finalName>fulltextsearch-${project.version}</finalName>
+                            <descriptors>
+                                <descriptor>src/main/assembly/assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

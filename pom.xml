@@ -21,6 +21,8 @@
         <elasticsearch.lucene.version>3.1.0</elasticsearch.lucene.version>
         <elasticsearch.jline.version>0.9.94</elasticsearch.jline.version>
         <elasticsearch.jna.version>3.2.7</elasticsearch.jna.version>
+
+        <cob.conf>standalone</cob.conf>
     </properties>
 
     <packaging>pom</packaging>
@@ -29,6 +31,7 @@
         <module>poms</module>
         <module>provision</module>
         <module>elasticsearch</module>
+        <module>dist</module>
     </modules>
 
     <build>
@@ -47,10 +50,8 @@
                 <configuration>
                     <framework>equinox</framework>
                     <provision>
-                        <param>--bootDelegation=javax.xml.*,sun.*</param>
-                        <param>
-                            <![CDATA[--vmOptions=-Xms256m -Xmx1G -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000]]>
-                        </param>
+                        <param>--bootDelegation=javax.*,sun.*,com.sun.*</param>
+                        <param>--vmOptions=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5000 -Dbundles.configuration.location=../devconfs/${cob.conf}</param>
                         <param>scan-bundle:mvn:org.ops4j.pax.logging/pax-logging-api/1.6.2</param>
                         <param>scan-bundle:mvn:org.ops4j.pax.logging/pax-logging-service/1.6.2</param>
                     </provision>

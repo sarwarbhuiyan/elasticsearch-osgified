@@ -61,6 +61,18 @@
             <version>${spring.framework.version}</version>
         </dependency>
 
+        <!-- for Configuration Admin -->
+        <dependency>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.equinox.cm</artifactId>
+            <version>1.0.0.v20080509-1800</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.confman</groupId>
+            <artifactId>pax-confman-propsloader</artifactId>
+            <version>0.2.2</version>
+        </dependency>
+
         <!-- Pax logging -->
         <dependency>
             <groupId>org.ops4j.pax.logging</groupId>
