@@ -17,10 +17,9 @@
         <spring.dm.version>1.2.1</spring.dm.version>
         <spring.framework.version>3.0.5.RELEASE</spring.framework.version>
 
-        <elasticsearch.version>0.16.2</elasticsearch.version>
-        <elasticsearch.lucene.version>3.1.0</elasticsearch.lucene.version>
-        <elasticsearch.jline.version>0.9.94</elasticsearch.jline.version>
-        <elasticsearch.jna.version>3.2.7</elasticsearch.jna.version>
+        <elasticsearch.version>0.19.8</elasticsearch.version>
+        <elasticsearch.lucene.version>3.6.0</elasticsearch.lucene.version>
+        <elasticsearch.jna.version>3.3.0</elasticsearch.jna.version>
 
         <cob.conf>standalone</cob.conf>
     </properties>
