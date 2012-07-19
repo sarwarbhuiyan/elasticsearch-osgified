@@ -39,7 +39,22 @@
             <artifactId>spring-osgi-io</artifactId>
             <version>${spring.dm.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.aopalliance</groupId>
+            <artifactId>com.springsource.org.aopalliance</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.emory.mathcs.backport</groupId>
+            <artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>org.springframework.aop</artifactId>
+            <version>${spring.framework.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>org.springframework.core</artifactId>
@@ -61,11 +76,17 @@
             <version>${spring.framework.version}</version>
         </dependency>
 
-        <!-- for Configuration Admin -->
+        <!--&lt;!&ndash; for Configuration Admin &ndash;&gt;-->
         <dependency>
             <groupId>org.eclipse.osgi</groupId>
             <artifactId>org.eclipse.equinox.cm</artifactId>
             <version>1.0.0.v20080509-1800</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.osgi</groupId>
+                    <artifactId>org.eclipse.osgi</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.ops4j.pax.confman</groupId>
