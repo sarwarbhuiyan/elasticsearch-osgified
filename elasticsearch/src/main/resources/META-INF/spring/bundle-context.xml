@@ -13,7 +13,7 @@
         <constructor-arg ref="elasticSearchProperties"/>
     </bean>
 
-    <bean id="esServerMonitor" class="com.humanet.elasticsearch.internal.ESMonitor">
+    <bean id="esServerMonitor" class="com.humanet.elasticsearch.internal.ESCluster">
         <constructor-arg index="0" ref="esServer"/>
     </bean>
 

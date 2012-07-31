@@ -44,8 +44,8 @@ public class MultipleESServerTest {
         server1.start();
         server2.start();
 
-        ESMonitor esMonitor = new ESMonitor(server1);
-        NodeInfo[] clusterInfo = esMonitor.getClusterInfo();
+        ESCluster esCluster = new ESCluster(server1);
+        NodeInfo[] clusterInfo = esCluster.getClusterInfo();
 
         assertEquals(clusterInfo.length, 2);
 
@@ -84,8 +84,8 @@ public class MultipleESServerTest {
         server1.start();
         server2.start();
 
-        ESMonitor esMonitor = new ESMonitor(server1);
-        NodeInfo[] clusterInfo = esMonitor.getClusterInfo();
+        ESCluster esCluster = new ESCluster(server1);
+        NodeInfo[] clusterInfo = esCluster.getClusterInfo();
 
         assertEquals(clusterInfo.length, 2);
 

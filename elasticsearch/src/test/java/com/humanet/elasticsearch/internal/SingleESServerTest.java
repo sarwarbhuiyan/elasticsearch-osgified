@@ -58,9 +58,6 @@ public class SingleESServerTest {
         server.start();
         assertTrue(server.isRunning());
 
-        NodeInfo[] clusterInfo = new ESMonitor(server).getClusterInfo();
-        assertThat(clusterInfo, HasNodeWithName("elasticsearch-server-01"));
-
         server.stop();
         assertFalse(server.isRunning());
 

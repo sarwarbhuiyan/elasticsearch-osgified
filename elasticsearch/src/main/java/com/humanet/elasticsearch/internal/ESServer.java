@@ -70,17 +70,13 @@ public class ESServer {
 
     public void start() {
         log.info("Starting FullTextSearch server with ElasticSearch");
-        node.start();
 
-        //Small shortcut to see if everything is ok.
-        ESMonitor esMonitor = new ESMonitor(this);
-        if (esMonitor.getClusterStatus().equals(Status.nok)) {
-            running = false;
-            throw new RuntimeException("ES cluster health status is RED. Server is not able to start.");
+        if (!running) {
+            node.start();
+            running = true;
 
         } else {
-            log.info("FullTextSearch Server running");
-            running = true;
+            log.info("The server appears to be already started");
         }
     }
 
@@ -93,7 +89,7 @@ public class ESServer {
 
             log.info("FullTextSearch with ElasticServer stopped");
         } else {
-            log.info("The server appears to be already stopped. Are you sure you started the server ?");
+            log.warn("The server appears to be already stopped. Are you sure you started the server ?");
 
         }
     }
