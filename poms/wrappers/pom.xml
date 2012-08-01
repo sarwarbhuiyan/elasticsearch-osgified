@@ -9,6 +9,8 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.humanet.fulltextsearch.build</groupId>
     <artifactId>wrapper-bundle-settings</artifactId>
 
     <name>fulltextsearch - wrapper instructions</name>
