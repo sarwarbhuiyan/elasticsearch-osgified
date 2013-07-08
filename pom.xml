@@ -33,6 +33,10 @@
         <module>dist</module>
     </modules>
 
+    <scm>
+        <developerConnection>scm:git:file:///.</developerConnection>
+    </scm>
+
     <build>
         <plugins>
             <plugin>
