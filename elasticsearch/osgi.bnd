@@ -2,12 +2,18 @@
 # Use this file to add customized Bnd instructions for the bundle
 #-----------------------------------------------------------------
 Import-Package: *;resolution:=optional
+
 Embed-Dependency:\
+ spatial4j;groupId=com.spatial4j;inline=false,\
+ jts;groupId=com.vividsolutions;inline=false,\
+ lucene-analyzers-common;groupId=org.apache.lucene;inline=false,\
+ lucene-codecs;groupId=org.apache.lucene;inline=false,\
  lucene-core;groupId=org.apache.lucene;inline=false,\
  lucene-highlighter;groupId=org.apache.lucene;inline=false,\
+ lucene-join;groupId=org.apache.lucene;inline=false,\
  lucene-memory;groupId=org.apache.lucene;inline=false,\
  lucene-queries;groupId=org.apache.lucene;inline=false,\
- lucene-analyzers;groupId=org.apache.lucene;inline=false,\
- elasticsearch;groupId=org.elasticsearch;inline=false,\
- jline;groupId=jline;inline=false,\
+ lucene-queryparser;groupId=org.apache.lucene;inline=false,\
+ lucene-spatial;groupId=org.apache.lucene;inline=false,\
+ lucene-suggest;groupId=org.apache.lucene;inline=false,\
  jna;groupId=net.java.dev.jna;inline=false
