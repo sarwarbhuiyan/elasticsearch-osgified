@@ -11,6 +11,12 @@
     <properties>
         <bundle.symbolicName>elasticsearch</bundle.symbolicName>
         <bundle.namespace>com.humanet.elasticsearch</bundle.namespace>
+
+        <elasticsearch.version>0.90.2</elasticsearch.version>
+        <elasticsearch.lucene.version>4.3.1</elasticsearch.lucene.version>
+        <elasticsearch.jna.version>3.3.0</elasticsearch.jna.version>
+        <spatial.version>0.3</spatial.version>
+        <jts.version>1.12</jts.version>
     </properties>
 
     <modelVersion>4.0.0</modelVersion>
@@ -64,6 +70,34 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>com.spatial4j</groupId>
+            <artifactId>spatial4j</artifactId>
+            <version>${spatial.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.vividsolutions</groupId>
+            <artifactId>jts</artifactId>
+            <version>${jts.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>${elasticsearch.lucene.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-codecs</artifactId>
+            <version>${elasticsearch.lucene.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
             <version>${elasticsearch.lucene.version}</version>
@@ -73,6 +107,13 @@
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-highlighter</artifactId>
+            <version>${elasticsearch.lucene.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-join</artifactId>
             <version>${elasticsearch.lucene.version}</version>
             <scope>compile</scope>
             <optional>true</optional>
@@ -93,12 +134,26 @@
         </dependency>
         <dependency>
             <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers</artifactId>
+            <artifactId>lucene-queryparser</artifactId>
             <version>${elasticsearch.lucene.version}</version>
             <scope>compile</scope>
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-spatial</artifactId>
+            <version>${elasticsearch.lucene.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-suggest</artifactId>
+            <version>${elasticsearch.lucene.version}</version>
+            <scope>compile</scope>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>

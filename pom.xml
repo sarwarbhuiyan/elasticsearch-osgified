@@ -16,10 +16,6 @@
         <spring.dm.version>1.2.1</spring.dm.version>
         <spring.framework.version>3.0.5.RELEASE</spring.framework.version>
 
-        <elasticsearch.version>0.19.8</elasticsearch.version>
-        <elasticsearch.lucene.version>3.6.0</elasticsearch.lucene.version>
-        <elasticsearch.jna.version>3.3.0</elasticsearch.jna.version>
-
         <cob.conf>standalone</cob.conf>
     </properties>
 
@@ -89,11 +85,6 @@
             <id>maven2-repository.java.net</id>
             <name>Java.net Repository for Maven</name>
             <url>http://download.java.net/maven/2/</url>
-        </repository>
-        <repository>
-            <id>ops4j.releases</id>
-            <name>Ops4j</name>
-            <url>http://repository.ops4j.org/maven2/</url>
         </repository>
     </repositories>
 

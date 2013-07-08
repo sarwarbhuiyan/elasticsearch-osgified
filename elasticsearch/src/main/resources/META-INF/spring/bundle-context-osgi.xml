@@ -6,6 +6,7 @@
                       http://www.springframework.org/schema/osgi-compendium http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd">
 
     <osgix:cm-properties id="elasticSearchProperties" persistent-id="com.humanet.elasticsearch">
+
     </osgix:cm-properties>
 
 </beans>
