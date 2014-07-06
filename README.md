@@ -4,4 +4,4 @@ Application that will embed the fulltextsearch engine [ElasticSearch](https://gi
 
 Currently I'm using Equinox with [Pax-Runner](https://github.com/ops4j/org.ops4j.pax.runner)
 
-To run the tests execute `mvn clean install` 
+To run the tests execute `mvn clean test` 
